@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Trainingsdaten</title>
+</head>
+<body>
+<div class="topnav">
+    <a href="GRIDKalender.html">GRID Kalender</a>
+    <a href="PHPKalender.php">PHP Kalender</a>
+    <a href="KIKalender.html">KI Kalender</a>
+    <a href="FinalKalender.php">Finaler Kalender</a>
+    <a href="Auswertung.html">Auswertung</a>
+    <a href="Impressum.html">Impressum</a>
+</div>
+<br>
+<form action="main.php" method="post" enctype="multipart/form-data">
+
+    <div class="container">
+        <label for="date"><b>Datum</b></label><br>
+        <input id="date" type="date" name="date" required><br>
+
+        <label for="category"><b>Kategorie</b></label><br>
+        <select id="category" name="category" required>
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="olympic">Olympisch</option>
+            <option value="squat">Beugen</option>
+            <option value="pull">Züge</option>
+            <option value="press">Drücken</option>
+        </select><br>
+
+        <div class="exercise-group group-olympic">
+            <label for="exercise-olympic"><b>Olympisch</b></label><br>
+            <select id="exercise-olympic" name="exercise">
+                <option value="snatch">Reißen</option>
+                <option value="cleanandjerk">Stoßen</option>
+                <option value="jerk">Ausstoßen</option>
+            </select><br>
+        </div>
+
+        <div class="exercise-group group-squat">
+            <label for="exercise-squat"><b>Beugen</b></label><br>
+            <select id="exercise-squat" name="exercise">
+                <option value="backsquat">Kniebeuge hinten</option>
+                <option value="frontsquat">Kniebeuge vorne</option>
+                <option value="overheadsquat">Überkopfkniebeuge</option>
+            </select><br>
+        </div>
+
+        <div class="exercise-group group-pull">
+            <label for="exercise-pull"><b>Züge</b></label><br>
+            <select id="exercise-pull" name="exercise">
+                <option value="snatchdeadlift">Zug breit</option>
+                <option value="cleandeadlift">Zug eng</option>
+                <option value="deadlift">Kreuzheben</option>
+            </select><br>
+        </div>
+
+        <div class="exercise-group group-press">
+            <label for="exercise-press"><b>Drücken</b></label><br>
+            <select id="exercise-press" name="exercise">
+                <option value="strictpress">Kraftdrücken</option>
+                <option value="pushpress">Schwungdrücken</option>
+                <option value="pushjerk">Schwungstoßen</option>
+            </select><br>
+        </div>
+
+        <label for="volume"><b>Volumen</b></label><br>
+        <div class="input-row">
+            <input id="volume" type="number" placeholder="Sätze" name="sets" required>
+            <input id="volumeeins" type="number" placeholder="Wiederholungen" name="reps" required><br>
+        </div>
+
+        <label for="intensity"><b>Intensität</b></label><br>
+        <div class="input-row">
+            <input id="intensity" type="number" placeholder="Gewicht" name="weight" required>
+            <input id="intensityeins" type="number" placeholder="Prozent" name="percent" required><br>
+        </div>
+
+        <label for="lights"><b>Gültigkeit</b></label>
+        <select id="lights" name="lights" required>
+            <option value="one">Eins</option>
+            <option value="two">Zwei</option>
+            <option value="three">Drei</option>
+        </select><br>
+
+        <label for="rperir"><b>RPE/RIR</b></label>
+        <select id="rperir" name="rperir" required>
+            <option value="5">5</option>
+            <option value="5.5">5.5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+            <option value="8.5">8.5</option>
+            <option value="9">9</option>
+            <option value="9.5">9.5</option>
+            <option value="10">10</option>
+        </select><br>
+
+        <label for="notes"><b>Notizen:</b></label><br>
+        <input id="notes" type="text" placeholder="Notizen" name="notes" required><br>
+
+        <label for="videoFile"><b>Video:</b></label><br>
+        <input type="file" id="videoFile" name="videoFile" required><br><br>
+
+        <button type="submit">Absenden</button>
+    </div>
+</form>
+<br>
+<div class="container" style="background-color:#f1f1f1">
+    <br><button type="reset" class="cancel">Cancel</button>
+</div>
+</body>
+</html>
