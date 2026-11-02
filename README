@@ -1,0 +1,40 @@
+Trainingsdaten
+
+Problem:
+- Webformular zunächst stateless: jeder Klick vergisst den vorherigen
+
+Ziel:
+- Schritt für Schritt Daten sammeln und gebündelt in Datenbank schreiben
+
+Lösung:
+- PHP-Session als Zwischenspeicher (Arbeitsspeicher des Servers)
+- Verarbeitung als POST-Request
+
+1. Formular-Eingabe > Session (Zwischenspeichern) > Relationales Speichern (Workout
+                                                                            
+– Exercise – Workout_Exercises – Sets)
+
+I.) Vorbereitung & Initialisierung (1-4):
+- Session starten um Zwischenspeicher zu nutzen
+- Debugging-Hilfe um direkt Fehler zu erkennen
+- Verbindung zur Datenbank aufbauen
+- extrem wichtig: temporärer Speicher $_SESSION['current_workout'] (leeres Array)
+
+II.) Request-Router & Datensammlung (12-16):
+- vom Frontend (Formular) in die Session
+- Post-Guard: $_SERVER['REQUEST_METHOD'] === "POST" greift beim Formular absenden (Logik nur bei POST-Methode verwenden)
+- prüft welche Felder ausgefüllt sind
+- jedes ausgefüllte Feld sofort zwischengespeichert (gehen zwischen den Pop-Ups nicht verloren)
+- am Ende der POST-Request wird auf sich selbst weitergeleitet mit angehängter Kategorie (verhindert doppeltes Absenden und hält Pop-Up offen)
+
+III.) Speichern in der Datenbank (5-11):
+- Speichern-Button: action === 'save_final_workout'
+- Prepared Statements für sicheren Datentransfer mysqli_prepare (SQL-Anweisung mit Platzhaltern) und mysqli_stmt_bind_param (weißt Variablen zu)
+- Daten und Logik getrennt um SQL-Injections (Ausnutzen einer Sicherheitslücke)zu verhindern
+- Normalisierung (Datenbankstruktur) führt zu vorgegebener Reihenfolge der zu speichernden Daten (Schlüsselverbindung für eindeutige Datensätze)
+- Cleanup: unset($_SESSIOn['current_workout'] leert Session für neue Trainingstage mit Erfolgsmeldung (?success=1)
+                 
+IV.) aktueller Zustand (ab 16):
+- welche Kategorie ist aktiv
+- URL ($_GET) > SESSION > leer
+- damit weiß das Frontend welche Formulare ausgefüllt bleiben müssen beim rendern oder eben nicht
