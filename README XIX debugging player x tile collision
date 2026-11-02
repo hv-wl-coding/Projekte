@@ -1,0 +1,32 @@
+1.) Spieleranimation schaltete auf Bücken/Fallen wenn der Berührungspunkt zwischen zweil tiles war
+
+2.) Kollision mit tiles über Rechteck um Spielfigur und dem Mittelpunkt der unteren Ebene berechnet
+
+3.) mehrere Kollsionspunkte (rechts, mitte, links) an der unteren Ebene der Spielfigur nutzen
+// ground_left = get_my_tiles_properties(tmx_data, player_x, player_y + 55)
+   ground_center = get_my_tiles_properties(tmx_data, player_x + 20, player_y + 55)
+  ground_right = get_my_tiles_properties(tmx_data, player_x + 40, player_y + 55)
+
+4.) Zustand für auf dme Boden stehen definieren, sobald einer dieser Punkte ein tile berührt
+// is_on_ground = (
+        ground_left["ground"]
+        or ground_center["ground"]
+        or ground_right["ground"]
+    )
+
+5.) die Höhe entsprechend diesen Punktes an
+// if ground_center["ground"]:
+        standing_on = ground_center
+    elif ground_left["ground"]:
+        standing_on = ground_left
+    else:
+        standing_on = ground_right
+
+6.) den kombinierten Status erzwingen
+// standing_on["ground"] = is_on_ground  
+   print(standing_on)
+
+7.) den Zustand in den Bewegungsbedingungen anpassen
+// if keyspressed[ord('w')]:  
+        if is_on_ground:   
+            player_jump_frame = 20 
