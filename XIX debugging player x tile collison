@@ -1,0 +1,49 @@
+        # ----------- contact line -----------
+        ground_left = get_my_tiles_properties(tmx_data, player_x, player_y + 55)
+        ground_center = get_my_tiles_properties(tmx_data, player_x + 20, player_y + 55)
+        ground_right = get_my_tiles_properties(tmx_data, player_x + 40, player_y + 55)
+
+        is_on_ground = (
+            ground_left["ground"]
+            or ground_center["ground"]
+            or ground_right["ground"]
+        )
+
+        if ground_center["ground"]:
+            standing_on = ground_center
+        elif ground_left["ground"]:
+            standing_on = ground_left
+        else:
+            standing_on = ground_right
+            
+        standing_on["ground"] = is_on_ground  
+        print(standing_on)
+
+        #----------- vertical movement -----------
+        if keyspressed[ord('w')]:  
+            if is_on_ground:   
+                player_jump_frame = 20 
+
+        if keyspressed[ord('s')]:      
+            pass   
+
+        if sum(keyspressed) == 0 and player_y >= y_ground: 
+            direction = "stand" 
+
+        if player_jump_frame > 0:
+            player_y -= 10 
+            direction = "jump"
+            player_jump_frame = player_jump_frame - 1 
+
+        elif not is_on_ground and player_jump_frame == 0:  
+            direction = "landing" 
+            player_y += 10  
+
+        elif is_on_ground and player_jump_frame == 0:    
+            tile_height = tmx_data.tileheight if tmx_data.tileheight else 70
+            tile_y = int((player_y + 55) // tile_height)
+            
+            player_y = (tile_y * tile_height) - 55
+            
+            if sum(keyspressed) == 0:
+                direction = "stand"
