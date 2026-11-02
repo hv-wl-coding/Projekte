@@ -1,0 +1,80 @@
+Kalender
+- GRID-Kalender statisch (jeden Monat einzeln Bauen verfügt über keine Logik um
+                          
+Trainingsdaten zu hinterlegen, zu viel Arbeit)
+- Online-Kalender und KI-Version angeschaut
+- Gemeinsamkeiten gesucht, daraus 4 Fragen:
+  Welcher Monat? Wo fängt dieser an? Wie viele Tage? US-Format zu EU?
+
+I.) Zustand ermitteln:
+- Seitenstart (Fallback): beim ersten Aufruf kein Formular-Post, also aktueller Server-Monat/Jahr durch date('m') und date('Y')
+- Frontend-Eingabe liefert per $_POST-Array neue Werte
+- intval() formatiert Eingaben direkt als Integer um unsichere Zeichen zu vermeiden
+
+II.) Startpunkt:
+- Fixpunkt: mktime(0,0,0,$monat,1,$jahr) erzeugt UNIX-Timestamp für Mitternacht des ersten Tages des gewählten Monats = Ausgangspunkt für weitere Logik
+- Monatslänge: date('t') liest Anzahl Tage des Monats (28-31) aus und berücksichtigt sogar Schaltjahre
+- Wochentag: date('w') verrät welchem Wochentag der Fixpunkt entspricht US = 0 (Sonntag) bis 6 (Samstag)
+
+III.) europäisches Grid:
+- US = Sonntag erster Wochentag, EU = Montag
+- date('w') === 0 liefert 0 wenn erster Tag ein Sonntag ist, dann 6 Leerzellen davor einfügen, Bsp.: Dienstag (2) dann eine Leerzelle
+
+- ternär-Abfrage (Bedingung ? AusdurckWennWahr : AusdruckWennFalsch): $startDatum = ($ersterTagInWoche ===) ? 6 : $ersterTagInWoche – 1; rendert
+  entsprechend Leerzellen vor dem 1.
+
+IV.) Lokalisierung:
+- standartmäßig englische Monatsnamen (je nach Webserverkonfiguration)
+- zwei parallele Arrays englisch und deutsch
+- str_replace() ersetzt den englischen Index durch den deutschen
+
+V.) GRID:
+- Kalenderwochen: date('W') ermittelt aus Timestamp die KW für das erste Element grid-kw
+- Leerfeld-Verschiebung: $startDatum z.B. Mittwoch mit for ($i = 0; $i < $startDatum; $i++) platziert exakt 2 Leefelder davor
+
+VI.) Tagesschleife:
+- läuft jeden Tag des Monats von 1 bis $anzahlTageImMonat durch
+- jeder Durchlauf erzeugt einheitliches Datumsformat mit sprintf() YYYY-MM-DD
+  für Abgleich mit $workoutsProDatum
+- $hatTraining prüft ob es im Array Daten zu dem Tag gibt, wenn ja dann bekommt er Button
+- date('j'), date('m'), date('Y') gleicht mit Systemdatum ab um den aktuellen Tag zumarkieren
+
+VII.) Popover:
+- an Trainingstagen öffnet der hinterlegte Button ein Pop-Up
+- popovertarget="popup-[datum]" Button-Attribut steuert das Öffnen und Schließen
+- foreach-Schleife sammelt alle Daten zu diesem Datum aus dem Array im Pop-Up
+- rendert die Ausgabe in einer Content-Box
+
+VIII.) Modulo-Logik:
+- jede neue Woche benötigt grid-kw vor Beginn und somit Info wann die vorherige endet
+- Wochentagzähler: $aktuellerTagInWoche wird hochgezählt
+- Restwert: % 7 == 0, wenn Zähler restlos durch 7 teilbar ist es ein Sonntag und die Woche endet … Zeile wird abgebrochen
+- $aktuelleKW++ wird erhöht und setzt neues grid-kw
+
+IX.) Monatsende:
+- Ende der Tagesschleife prüft ob letzte Woche voll ist
+- wenn Wochentagzähler am Monatsende nicht restlos durch 7 teilbar, dann endet der Monat an einem anderen Wochentag und Schleife startet while ($aktuellerTagInWoche % 7 != 0)
+- restliche Tage werden mit Leerfelder gefüllt
+
+X.) Datenbankabfrage:
+- Tabellen über Joins für Abfrage zusammenführen
+- Z.B.: 3 Übungen á 3 Sätze = 9 Zeilen
+- ORDER BY workouts.date ASC sortiert chronologisch für leichtere Verarbeitung
+
+XI.) Gruppierung:
+- SQL-Ergebnis für Frontend nutzlos
+- möchte nicht zeilenweise ausgeben sondern pro Tag
+- leeres eindimensionales Array $workoutsProDatum = [] initialisieren
+- While-Schleife geht durch SQL-Ergebnis und normalisiert das Datenformat date('Y-m-d', strtotime($zeile['date']))
+- strtotime() menschliche Datumsangaben zu UNIX-Zeitstempel
+- Datum nun Schlüssel im Array
+- $workoutsProDatum[$datumFormatiert][] = $zeile sammelt nun automatisch an diesem Tag die entsprechend stattgefundenen Daten
+- zweidimensionales Array: assoziatives Array mit Array verschachtelt
+$workoutsProDatum = [
+ '2026-06-01' => [
+ ['name' => 'Kniebeuge', 'sets' => 1, 'reps' => 5, ...],
+ ],
+ '2026-06-03' => [
+ ['name' => 'Reißen', 'sets' => 1, 'reps' => 3, ...]
+ ]
+];
