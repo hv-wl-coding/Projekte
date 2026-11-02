@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .maincontainer {
+            width: 100%;
+            background: deepskyblue;
+            border: 2px solid black;
+            border-radius: 4px;
+            padding: 30px;
+        }
+        .centered {
+            width: 66%;
+            margin: auto;
+            background-color: aliceblue;
+            border: 2px solid black;
+            border-radius: 4px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <div class="centered">
+            <form action="main.php" method="post">
+                <label for="name">Username</label>
+                <input id="name" type="text" name="name" placeholder="name"/><br />
+                <input type="text" name="age" placeholder="age"/><br />
+                <input type="text" name="gender" placeholder="gender"/><br />
+                <input type="text" name="email" placeholder="email"/><br />
+                <input type="submit"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
