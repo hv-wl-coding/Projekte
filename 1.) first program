@@ -1,0 +1,14 @@
+using System;                                                       // bindet Module ein: "namespace" des Systems nutzen; enthält grundlegende Funtionalitäten z.B. wie Klassen oder Methoden funktionieren
+
+namespace HelloWorld                                                // eine Art Paket mit dessen Bezeichnung, welches den Code enthält
+{
+    class Program                                                   // eine Klasse (Bauplan); enthalten ausführbare Codeblöcke aus denen z.B. Objekte instanziert (erstellt) werden können
+    {
+        static void Main(string[] args)                             // die Main-Methode (benötigt jedes Programm); "static" heißt das kein Objekt benötigt wird zur Verwendung, "void" = kein Rückgabewert ("return") erwartet 
+        {
+            Console.WriteLine("Hallo Welt!");                       // "Console" = Klasse beinhaltet die Methode "WriteLine()" zum Schreiben in die Konsole; Anführungsstriche für den String und Semikolon (";") am Ende der Zeile beachten
+            Console.WriteLine("Beispiel"); 
+            Console.ReadKey();                                      // lässt Konsole offen und wartet auf Tasteneingabe zum schließen
+        }
+    }                                                               // geschweifte Klammern umspannen den jeweils zusammenhängenden Codeblock
+}
