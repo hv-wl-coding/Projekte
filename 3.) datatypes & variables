@@ -5,7 +5,7 @@ Variablen können dabei verschiedene Datentypen haben. Diese stellen den Werttyp
 
 Primitive Datentypen:
 
-Typ          Repräsentiert                                               Menge                                                          Standartwert
+Typ         Repräsentiert                                                Menge                                                          Standartwert
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 bool        Boolean                                                      True or False                                                  FALSE
 byte        8-Bit vorzeichenloser Integer (uint8_t)                       0 - 255                                                       0
