@@ -1,3 +1,5 @@
+Das erste Programm für ein paar Grundfunktionen von C#: Module, Klassen, Main-Methode und Ausgabe.
+
 using System;                                                       // bindet Module ein: "namespace" des Systems nutzen; enthält grundlegende Funtionalitäten z.B. wie Klassen oder Methoden funktionieren
 
 namespace HelloWorld                                                // eine Art Paket mit dessen Bezeichnung, welches den Code enthält
