@@ -20,3 +20,6 @@ short       16-Bit Ganzzahl                                              -32.768
 uint        32-Bit vorzeichenlose Ganzzahl                                0 - 4.294.967.295                                             0
 ulong       64-Bit vorzeichenlose Ganzzahl                                0 - 18.446.744.073.709.551.615                                0
 ushort      16-Bit vorzeichenlose Ganzzahl                                0 - 65.535                                                    0
+
+Strings werden für Text verwendet, z.B. string myName = "Beispiel";.
+"string" gibt den Datentyp der Variable "myName" an und der Variable wird der Wert "Beispiel" zugewiesen und die Variable wird dann mit diesem Wert initialisiert.
