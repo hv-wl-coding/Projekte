@@ -1,0 +1,6 @@
+Die Hintergrund- und Schriftfarbe der Konsole kann über die folgenden Befehle angepasst werden.
+Der Code für die Farben muss vor dem eigentlichen Text stehen.
+Einzeilige Kommentare werden mit "//" gestartet und mehrzeilige über "/*" und mit "*/" beendet.
+
+Console.BackgroundColor = ConsoleColor.DarkGray;                                         // die Klasse "Console" besitzt die Eigenschaft (properties) "BackgroundColor"; in dem Fall setzt man diese mit der gewünschten Farbe gleich
+Console.ForegroundColor = ConsoleColor.Green;                                            // das gleiche kann für die Vordergrundfarbe (Schriftfarbe) angepasst werden
