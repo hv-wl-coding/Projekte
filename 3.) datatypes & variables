@@ -23,3 +23,34 @@ ushort      16-Bit vorzeichenlose Ganzzahl                                0 - 65
 
 Strings werden für Text verwendet, z.B. string myName = "Beispiel";.
 "string" gibt den Datentyp der Variable "myName" an und der Variable wird der Wert "Beispiel" zugewiesen und die Variable wird dann mit diesem Wert initialisiert.
+Variablen werden mit angabe des Datentypen deklariert. Sobald nach dem "=" ein Wert zugewiesen wird ist diese initialisiert.
+Es gibt verschiedene Möglichkeiten Variablen zu deklarieren (anlegen) und initialisieren (Wert zuweisen).
+
+using System; 
+
+namespace MeinProjekt
+{
+    class Program 
+    {
+        static void Main(string[] args) 
+        {
+            int wert1 = 25;                                                 // Option 1: Datentyp Integer und der Dame der Variable, Zuweisung (=) des Wertes 25
+            int wert2;                                                      // Option 2: nur deklariert
+            wert2 = 15;                                                     // danach initialisiert
+
+            int summe = wert1 + wert2;                                      // Variablen können addiert werden (Unterstreichung verschwindet sobald Variable genutzt wird)
+
+            int wert3, wert4, wert5;                                        // Option 3: mehrere Variablen in einer Zeile deklarieren
+
+            double d1 = 3.5;                                                // Gleitkommazahl (auf "." achten anstatt dem Komma) deklariert und initialisiert
+            double d2 = 1.337;
+            double ergebnis = d1 / d2;                                      // Division der doubles (Doubleoperator)
+
+            float f1 = 1.337f;                                              // Wert wird als double interpretiert, sobald f hintersteht wird dieser als float erkannt; floats verbrauchen weniger Speicher (7 Stellen Genauigkeit) als doubles
+
+            Console.WriteLine("summe ist " + summe);                        // Konkatinieren: Ausgabe der Summe durch verbundenen String und die Variable
+            Console.WriteLine("Ergebnis ist " + ergebnis);                  // doubles können nur eine bestimmte Länge (16 Stellen genauigkeit) halten
+            Console.ReadKey();
+        }
+    }
+}
