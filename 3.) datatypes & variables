@@ -1,0 +1,3 @@
+Datentypen und Variablen speichern Informationen während der Programmlaufzeit, danach werden die Inhalte gelöscht (kein permanenter Speicher).
+Variablen sind Werte welche sich durch Bedingungen oder Programminformationen ändern kann.
+Ein Programm besteht aus Anweisungen, die dem Computer Befehle geben und Daten die das Programm während der Ausführung verwendet.
