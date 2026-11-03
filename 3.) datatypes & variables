@@ -1,3 +1,22 @@
 Datentypen und Variablen speichern Informationen während der Programmlaufzeit, danach werden die Inhalte gelöscht (kein permanenter Speicher).
 Variablen sind Werte welche sich durch Bedingungen oder Programminformationen ändern kann.
 Ein Programm besteht aus Anweisungen, die dem Computer Befehle geben und Daten die das Programm während der Ausführung verwendet.
+Variablen können dabei verschiedene Datentypen haben. Diese stellen den Werttyp dar und welche mathematischen, relationalen oder logischen Operationen angewendet werden können.
+
+Primitive Datentypen:
+
+Typ          Repräsentiert                                               Menge                                                          Standartwert
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+bool        Boolean                                                      True or False                                                  FALSE
+byte        8-Bit vorzeichenloser Integer (uint8_t)                       0 - 255                                                       0
+char        16-Bit Unicode character (UTF-16)                             U +0000 - U +ffff                                             \o' 
+int         32-Bit Ganzzahl                                              -2.147.483.648 - 2.147.283.647                                 0
+float       32-Bit single-precision floating point type (FP32)           -3,4 x 1038 - 3,4 x 1038                                       0.0F
+double      54-Bit double-precision floating point type(FP64)            (+/-)5,0 x 10-324 - (+/-)1,7 x 10308                           0.0D
+decimal     128-Bit Dezimalzahl mit 28-29 Stellen                        (-7,9 x 1028 - 7,9 x 1028 / 100 - 28)                          0.0M
+long        64-Bit Ganzzahl                                              -9.223.372.036.854.775.808 - 9.223.372.036.854.775.807         0L
+sbyte       8-Bit Ganzzahl                                               -128 - 127                                                     0 
+short       16-Bit Ganzzahl                                              -32.768 - 32.767                                               0
+uint        32-Bit vorzeichenlose Ganzzahl                                0 - 4.294.967.295                                             0
+ulong       64-Bit vorzeichenlose Ganzzahl                                0 - 18.446.744.073.709.551.615                                0
+ushort      16-Bit vorzeichenlose Ganzzahl                                0 - 65.535                                                    0
