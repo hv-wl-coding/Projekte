@@ -1,0 +1,34 @@
+Um mathematische Berehcnungen zu verienheitlichen oder zum Beispiel Eingaben zu verarbeiten können Datentypen in andere umgewandelt werden.
+Das casting funktioneirt dabei nur von kleineren Datentypen zu größeren, z.B. Integer (int32) zu long (int64). Anderherum würden Daten verloren gehen wenn der gesamte Speicherbereich überschritten wird.
+
+using System; 
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {                    
+            int num = 1234567;
+            long bigNum = num;                                                // implizierte Konvertierung, wandelt den Wert aus "num" (int) in einen "long" Datentyp um
+            long veryBigNum = 123456789123456789;
+            int num2 = veryBigNum;                                            // "long veryBigNum" zu "int num2" konvertieren geht nicht
+  
+            float myFloat = 13.37f;                                           // "float" zu "double" funktioniert, da "float" kleinere Variante ist, andersherum nicht
+            double myDouble = myFloat;
+
+            int myInt;                                                        // soll initialisiert werden und den Wert aus der nächsten Zeile zugewiesen werden
+            double myNewDouble = 13.37;                                       // int kennt nur ganzzahlige Werte keine Kommazahlen, implizite Konvertierung funktioniert also nicht
+            myInt = (int)myNewDouble;                                         // explizite Konvertierung wandelt den "double" über casten um, gibt 13 aus da "int" keine Kommazahlen kennt
+
+            string myString = myDouble.ToString();                            // wandelt den "double 13.37" in einen String/Text "13.37", ungenaue Zahl/Abweichung bei impliziter Konvertierung
+            string myString2 = myString + "12";                               // Strings addieren funktioniert nicht, werden stattdessen aneinander gereiht
+            
+            bool sunIsShining = true; 
+            string myBoolString = sunIsShining.ToString();                    // wert "true" als String ausgegeben
+
+            Console.WriteLine(myBoolString);
+            Console.ReadKey();
+        }
+    }
+}
