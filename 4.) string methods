@@ -1,0 +1,27 @@
+Strings sind ein Datentyp, welcher Variablen zugeordnet werden kann. 
+Als Klasse besitzen Strings sowohl Eigenschaften als auch Methoden.
+
+using System; 
+
+namespace MeinProjekt
+{
+    class Program 
+    {
+        static void Main(string[] args) 
+        {
+            string meinName = "Beispiel";                                                                         // Variable "meinName" als String deklarieren, Wert Beispiel zuweisen und mit Gänsefüßchen initialisieren
+            
+            string nachricht = "Mein Name ist " + meinName;                                                       // dem String können per Konkatieren auch Variablen hinzugefügt werden
+
+            int laengeDesStrings = nachricht.Length;                                                              // "nachricht." zeigt Methoden oder die Eigenschaft "length" zu diesem String; in dem Fall wird es in einer neune Integervariable gespeichert
+
+            string allesGrossGeschrieben = nachricht.ToUpper();                                                   // alle buchstaben des Strings in Großbuchstaben umwandeln und in neuer Variable speichern zum ausgeben; die eigentliche Nachricht bleibt gleich
+            string allesKleinGeschrieben = nachricht.ToLower();                                                   // alles klein schreiben; Methode "ToLower()" wird aufgerufen (Klammern sind bei Methoden wichtig)
+
+            Console.WriteLine("Hallo " + meinName);                                                               // String ausgeben und weiteren String als Variable hinzufügen
+            Console.WriteLine(nachricht + ", ist {0} Zeichen lang, {1}", laengeDesStrings, meinName);             // "WriteLine()" erwartet einen String, "nachricht" erfüllt diese Bedignung // fügen den Inhalt an der 0. Position ("{0}, Index) nach dem Komma ein; die Integervariable "laengeDesStrings" oder weitere aufgezählte Variablen
+            Console.WriteLine(allesGrossGeschrieben);                                                             // "cw" + zweimal Tabtaste füllt "WriteLine" Code automatisch aus
+            Console.WriteLine(allesKleinGeschrieben);
+            Console.ReadKey();
+        }
+    }
