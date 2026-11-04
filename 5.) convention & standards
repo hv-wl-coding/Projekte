@@ -1,0 +1,19 @@
+Für guten Stil beim Code schreiben gelten gewisse Konventionen, dies ermöglich in größeren Projektteams einen einheitlich/verständlichen Code.
+Die Bennennung ist Standartmäßig auf Englisch, da der COde auch in dieser Sprache ist.
+
+using System; 
+
+namespace MeinProjekt
+{
+    class ProgramEins                             // Klassennamen fangen mit einem Großbuchstaben an, für bessere Erkennbarkeit bei mehreren Wörtern Großbuchstaben nutzen, Leerzeichen sind nicht erlaubt
+    {
+        static void Main(string[] args)           // Methodennamne ebenfalls groß schreiben, sind meistens Verben/Tätigkeiten
+        {                                         // Methodenargumente kleinschreiben
+            int itemCount = 0;                    // Variablen klein schreiben und bei mehreren Wörtern Großbuchstaben nutzen, Wörter allgemein ausschreiben für mehr Eindeutigkeit und den Code gut lesbar gestalten
+                                                  // keine Zahlen am Anfang von Variablennamen
+                                                  // Datentypen klein schreiben
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+    }
+}
