@@ -1,4 +1,4 @@
-Strings sind ein Datentyp, welcher Variablen zugeordnet werden kann. 
+Strings sind ein Datentyp, welcher Variablen zugeordnet werden kann und den Typ der zugewiesenen Werte spezifiziert.
 Als Klasse besitzen Strings sowohl Eigenschaften als auch Methoden.
 
 using System; 
@@ -25,3 +25,4 @@ namespace MeinProjekt
             Console.ReadKey();
         }
     }
+}
