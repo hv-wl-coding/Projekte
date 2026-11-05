@@ -1,0 +1,24 @@
+Konstanten enthalten Werte, welche während der gesamten Kompilierzeot bekannt sind und während der Laufzeit unveränderlich bleiben.
+Guter Stil ist es die Konstanten außerhalb von Methoden direkt in der jeweiligen Klasse anzulegen.
+
+using System;
+using System.Runtime.CompilerServices;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        const double PI = 3.14159265359;                                       // Schlüsselwort "const" nutzen, danach folgt Standart Deklariereung und Initialisierung (muss direkt sein, sonst Error)      
+        const int weeks = 52, months = 12;
+        const string birthday = "01.01.2000";                                  // sich nie ändernde "erte wie Geburtstage machen Sinn als Konstanten
+       
+        PI = 3.2;                                                              // führt ebenfalls zu einem Fehler, da linke Seite keine Variable, Eigenschaft oder Index ist
+
+        static void Main(string[] args) 
+        {       
+            Console.WriteLine("Mein Geburtstag ist am " + birthday);
+            Console.WriteLine("Mein Geburtstag ist am {0}.", birthday);
+            Console.ReadKey();
+        }
+    }
+}
