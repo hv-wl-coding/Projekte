@@ -1,5 +1,5 @@
 Um mathematische Berehcnungen zu verienheitlichen oder zum Beispiel Eingaben zu verarbeiten können Datentypen in andere umgewandelt werden.
-Das casting funktioneirt dabei nur von kleineren Datentypen zu größeren, z.B. Integer (int32) zu long (int64). Anderherum würden Daten verloren gehen wenn der gesamte Speicherbereich überschritten wird.
+Das casting funktioniert dabei nur von kleineren Datentypen zu größeren, z.B. Integer (int32) zu long (int64). Anderherum würden Daten verloren gehen wenn der gesamte Speicherbereich überschritten wird.
 
 using System; 
 
