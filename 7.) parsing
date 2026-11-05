@@ -1,0 +1,24 @@
+Parsing (Umwandlung) von einem String zu einem Integer-Wert erfolgt über die Integer-Methode ".Parse()".
+".TryParse()" wird keine Exception aus, sondern einen Boolean ob die Umwandlung stattgefunden hat.
+
+using System; 
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {                    
+            string myString ="15";
+            string mySecondString = "13";
+            string result = myString + mySecondString;                       // Konkatenation = in dem Fall Strings aneinander hängen, zwei "addierte" Strings fügen die Zahlen nacheinander an ("1515")
+            
+            int num1 = int.Parse(myString);                                  // Parsing-Methode konvertiert Zahl aus einem String zu Integer
+            int num2 = int.Parse(mySecondString);                            // sobald der String mehr als eine Zahl enthält z.b. noch Buchstaben (15a) gibt es einen Error (FormatException)
+            int resultInt = num1 + num2;                                     // 15 + 13 = 28
+
+            Console.WriteLine(resultInt);
+            Console.ReadKey();
+        }
+    }
+}
