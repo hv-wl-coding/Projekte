@@ -1,0 +1,30 @@
+Methoden mit dem Rückgabetyp "void" (leer) erwarten keine Rückgabe, z.B. die Main-Methode. Diese benötigt auch kein Objekt zum aufrufen.
+Generell macht es Sinn wenn sich Code wiederholt die Zeilen zu sparen und Methoden zum erneuten aufrufen zu nutzen.
+Unterschied Oarameter, Argument und Variable beachten.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args)                                                // die Main-Methode ist der Startpunkt des Programms
+        {       
+            WriteSomething();                                                          // ruft die erste erstellte Methode auf
+            // string myArgument = "Hallo, ich bin ein super Text!";                   // alternativ mit einer vorher deklarierten/initialisierten Variable
+            // WriteSomethingSpecific(myArgument);                                     // es können unterschiedliche Inhalte übergeben werden
+            WriteSomethingSpecific("Ich bin spezifischer Text");                       // "WriteSomethingSpecific()" erwartet beim Aufrufen einen string, übergeben dieses Argument in der Klammer
+            Console.ReadKey();                                                         // Konsole wartet auf Eingabe - führt Methode dann erneut aus
+        }
+
+        public static void WriteSomething()                                            // "public" = öffentlich zugänglich von anderen Klassen aus, "static" wird von der Main-Methode aufgerufen, "void" = keine Rückgabe
+        {
+            Console.WriteLine("Ich bin eine Methode!");                                // Konsole öffnet ohne Ausgabe (noch nicht ausgeführt), wenn nicht über Main-Methoden aufgerufen
+        }                                                                              
+
+        public static void WriteSomethingSpecific(string myText)                       // mit Parameter (bei Deklaratioon der Methode eingetragen in der Klammer)
+        {
+            Console.WriteLine(myText); 
+        }
+    }
+}
