@@ -1,0 +1,29 @@
+Eine Methode ist ein Codeblock mit einer Reihe von Anweisungen - das Programm bewirkt die Ausführung der Anweisungen durch Aufrufen der Methode (mit allen Methodenargumenten).
+Die Main-Methode ist der Eintsiegspunkt für C# Anwendungen, sie wird von der Common Language Runtim (CLR) beim Programmstart aufgerufen.
+Methoden/funktionen sind wieder nutzbar und werden in Paketen gespeichert, können mit unterschiedlichen Werten erneut ausgeführt werden.
+
+Aufbau/Syntax:
+
+<Zugriffsmodifizierer> <Rückgabetyp> <Methodenname> (Parameterliste) {
+    Methodenkörper 
+}
+
+Zugriffsmodifizierer: z.B. public/private, bestimmt Sichtbarkeiten in anderen Klassen
+Rückgabetyp: z.B. int, string (Wertetyp)
+Methodenname: eindeutig
+Parameterliste: übergebene optionale Daten an die Methode (Typ, Reihenfolge, Anzahl)
+Methodenkörper: erforderliche Anweisungen zum Ausführne der Aktivität
+
+Beispiele:
+
+public int Add(int num1, int num2) { //variablen bei erstellung sind parameter
+    int result = num1 + num2;    //werte die übergeben werden sind attribute
+    return result;
+}
+
+public int Add(int num1, int num2) {
+    return num1 + num2;
+}
+
+Parameter: Variablen bei Erstellung einer Methode (Methodenkopf in Klammern nach Methodenname)
+Attribute: Werte die an die Methode übergeben werden (im MEthodenkörper)
