@@ -1,0 +1,33 @@
+Methoden die mit "void" (leer) defineirt werden benltigen keinen Rückgabetyp. Alle anderen emthoden geben den jeweiligen datentyp zurück.
+Im "return" können z.B. ganze Ausführungen (wie Rehcnungen) stehen oder weitere Variablen, die z.B. ein Ergebnis dieser Rechnung speichern.
+Für die jeweilige Ausgabe wird wieder der print-Befehl "Console.WriteLine()" benötigt, der entweder direkt den methodenaufruf beinhaltet oder die Ergebnisvariable.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {       
+            int result = Add(15, 23);                                                 // Methode aufrufen und Ergebnis in Variable speichern für die Ausgabe
+            Console.WriteLine(result);
+            Console.WriteLine(Add(15, 23));                                           // alternative Ausgabemöglichkeit mit der Methode im print
+            Console.WriteLine(Add(Add(1,2), Add(3,4)));                               // Methodenaufrufe als Übergabewerte bzw. Argumente für die Methode, Ergebnis von 1+2 und Ergebnis von 3+4
+            Console.WriteLine(Multiply(13,23));
+            Console.ReadKey();  
+        }
+
+        public static int Add(int num1, int num2)                                      // zwei int Werte addieren und Ergebnis zurückgeben
+        {
+            return num1 + num2;                                                        // nicht leer (void) sondern int Ergebnis, ohne return funtioniert diese Methode nicht
+        }
+
+        public static double Multiply(double num1, double num2)                        // Beispiel für Multiplikation, Parameternamen num1 und num2 können mehrfach genutzt werden da sie nur innerhalb der Methode gelten
+        {
+            // return num3 * num4;                                                     // mit Alternative fürs "return"
+            double result = num3 * num4; 
+            return result;                                                             // geeignet wenn in der Methode mehrere Dinge passieren als nur ein einfaches Ergebnis als Rückgabe
+        }
+    }
+}
