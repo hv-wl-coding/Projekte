@@ -1,6 +1,7 @@
 Methoden mit dem Rückgabetyp "void" (leer) erwarten keine Rückgabe, z.B. die Main-Methode. Diese benötigt auch kein Objekt zum aufrufen.
 Generell macht es Sinn wenn sich Code wiederholt die Zeilen zu sparen und Methoden zum erneuten aufrufen zu nutzen.
-Unterschied Oarameter, Argument und Variable beachten.
+Unterschied Parameter, Argument und Variable beachten.
+"static" gehört zur Klasse selbst und muss nicht über "new" instanziiert werden. Eine static-Methode kennt die Objekte nicht und kann also über "this" nicht auf die Instanzvariablen zugreifen.
 
 using System;
 
