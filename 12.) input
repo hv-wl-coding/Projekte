@@ -1,0 +1,32 @@
+Einfache Programm um Konsoleneingaben für Addition zu nutzen.
+Main-Methode ruft Funktion der kalkulation auf (direkt im print).
+Inputs müssen per Parsing konvertiert werden da mit strings nicht gerechnet werden kann.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {     
+            Console.WriteLine(Calculate());                                             // ruft Methode auf samt Ergebnis
+            Console.ReadKey();
+        }
+
+        public static int Calculate()
+        {
+            Console.WriteLine("Erste Zahl eingeben: ");                                // es macht Sinn vor einer Eingabe auszugeben was erwartet wird
+            string num1 = Console.ReadLine();                                          // liest Eingabewert der Konsole als String 
+            Console.WriteLine("Zweite Zahle eingeben: ");
+            string num2 = Console.ReadLine();
+
+            int eins = int.Parse(num1);                                                // String Zahl in Integer umwandeln zum Rechnen
+            int zwei = int.Parse(num2);                                                // Error wenn keine Zahlen eingegeben werden da Parsing fehlschlägt
+
+            int ergebnis = eins + zwei;
+
+            return ergebnis;
+        }
+    }
+}
