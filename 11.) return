@@ -31,3 +31,65 @@ namespace MeinProjekt
         }
     }
 }
+
+Drei Freunde begrüßen ohn Rückgabewerte in 3 verschiedenen Varianten:
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        // Variante 1: die Methode 3x aufrufen mit unterschiedlichen Argumenten
+        static void Main(string[] args) 
+        {       
+            string friend1 = "Kurt";
+            string friend2 = "Marie";
+            string friend3 = "Bob";
+
+            GreetFriend(friend1);
+            GreetFriend(friend2);
+            GreetFriend(friend3);
+            Console.ReadKey(); 
+        }
+
+        public static void GreetFriend(string friendName)
+        {
+           Console.WriteLine("Hallo {0}, mein Freund!", friendName);
+        }
+-------------------------------------------------------------------------------------------
+        // Variante 2: 3 Parameter übergeben und die Methode 1x aufrufen mit 3 Argumenten
+        static void Main(string[] args) 
+        {       
+            string friend1 = "Kurt";
+            string friend2 = "Marie";
+            string friend3 = "Bob";
+
+            GreetFriend(friend1, friend2, friend3);
+            Console.ReadKey(); 
+        }
+
+        public static void GreetFriend(string friendName1, string friendName2, string friendName3)
+        {
+           Console.WriteLine("Hallo {0}, mein Freund!", friendName1);
+           Console.WriteLine("Hallo {0}, mein Freund!", friendName2);
+           Console.WriteLine("Hallo {0}, mein Freund!", friendName3);
+        }
+----------------------------------------------------------------------------------------
+        // Variante 3: alle Freund-Variablen durch einen einzigen String ausgeben, Methode mit 3 Parameter und aufruf mit entsprechend 3 Argumenten
+        static void Main(string[] args) 
+        {       
+            string friend1 = "Kurt";
+            string friend2 = "Marie";
+            string friend3 = "Bob";
+
+            GreetFriend(friend1, friend2, friend3);
+            Console.ReadKey(); 
+        }
+
+        public static void GreetFriend(string friendName1, string friendName2, string friendName3)
+        {
+           Console.WriteLine("Hallo {0}, {1} und {2}, meine Freund!", friendName1, friendName2, friendName3);
+        }
+    }
+}
