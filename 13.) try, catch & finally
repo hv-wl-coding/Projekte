@@ -1,0 +1,57 @@
+Bei Eingaben könnte falsche Werte eingetragen werden, wodurch z.B. das Parsing in einem Error resultiert.
+Diese Fehler können durch "try" abgefangen werden, damit das jeweilige Programm nicht direkt abstürzt.
+Ein Runtime-Fehler wird nicht in der IDE angezeigt, sondern tritt während des Laufens auf.
+Zusätzlich ist es nützlich um zu verstehen wo, welcher Fehler liegt um diesen zu debuggen.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {     
+            Console.WriteLine("Bitte Zahl eintragen:");                                                     // Fehler durch falsche Eingabe provozieren
+            string userInput = Console.ReadLine();    
+
+            try                                                                                             // enthält den Code der zu Fehlern führen kann
+            {      
+            int userInputAsInt = int.Parse(userInput);                                                      // Eingabe (string) als integer parsen / "System.FormatException": Zahl die zum Integer gewandelt wird erwartet / hover über ".Parse" deutet auf drei mögliche Fehler hin    
+            }
+            // catch(Exception)                                                                             // "Exception" für allgemeine Fehler, kann auch genauer definiert sein
+            catch(FormatException)                                                                          // in Klammer den jeweils erwarteten Fehler benennen, geht auch mit einer Variable
+            {                                                                                               // fängt Fehler ab und gibt folgenden Block aus ohne das das Programm abstürzt
+                // Console.WriteLine("Fehler aufgetreten!");                                                // für "(Exception)"
+                Console.WriteLine("Format war inkorrekt. Du hättest eine Nummer eintragen sollen!"); 
+            }
+            catch(ArgumentNullException)                                                                    // es können mit mehreren catch bzw. excpetions abgefangen werden // null nicht als argument akzeptiert (input = leer), leerer string nicht leer(null)
+            {
+                Console.WriteLine("ArgumentNullException, der Wert war leer (null)!");
+            }
+            catch(OverflowException)
+            {
+                Console.WriteLine("OverflowException, der eingegebene Wert war zu lang!");                  // Wert zu groß um als integer zu parsen
+            }
+            finally                                                                                         // das was immer ausgeführt werden soll egal ob es im "try" funktioniert hat oder nicht
+            {
+                                                                                                            // z.b. Verbindung/Datei schließen nach einem Fehler, damit sie nicht offen bleibt bei Abbruch
+                Console.WriteLine("Ich werde sowieso ausgeführt!");
+            }
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            try
+            {
+                int userInputAsInt = int.Parse(userInput);
+                int ergebnis = userInputAsInt / 0;
+            }
+            catch(Exception)                                                                                 // oder DivideByZeroException
+            {
+                Console.WriteLine("Durch 0 teilen ist nicht erlaubt!");
+            }
+            finally
+            {
+                Console.WriteLine("Richtigen Wert zum teilen wählen.");
+            }
+            Console.ReadKey();
+        }                                                       
+    }
+}
