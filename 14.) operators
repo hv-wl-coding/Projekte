@@ -1,0 +1,80 @@
+Für verschiedenste Arten von Programmen werden mathematische Berechnungen benötigt.
+Dafür ist es sinnvoll unterschiedliche Operatoren zu kennen um z.B. Werte zu verändern oder in Beziehunge zu setzen.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {     
+            int num1 = 5;
+            int num2 = 3;
+            int num3;
+            // unäre Operatoren
+            num3 = -num1;                                                                                                            // num3 gleich negativ Wert von num1
+            Console.WriteLine("num3 ist {0}", num3);                                                                                 // -5
+
+            bool isSunny = true;
+            Console.WriteLine("ist es sonnig? {0}", !isSunny);                                                                       // negiert den bool Wert = false
+
+            // Inkrementoperatoren
+            int num = 0;
+            num++;                                                                                                                   // addiert 1 zum ursprünglichen num Wert hinzu
+            Console.WriteLine("num ist {0}", num);                                                                                   // num = 1
+            Console.WriteLine("num ist {0}", num++);                                                                                 // Variante, erst in Folgezeile aktiv, dann intern auf 2 erhöht
+            // Preinkrement
+            Console.WriteLine("num ist {0}", ++num);                                                                                 // erhöht in der selben Zeile, num = 3
+
+            // dekrement operatoren, verringern
+            num--;
+            Console.WriteLine("num ist {0}", num);                                                                                   // verringert = 2
+            // Predekrement
+            Console.WriteLine("num ist {0}", --num);                                                                                 // num = 1
+
+            int result;
+            result = num1 + num2;
+            Console.WriteLine("Ergebnis von num1: {0} + num2: {1} ist {2}",num1, num2, result);                                      // Addition: 5 + 3 = 8
+            
+            result = num1 - num2;
+            Console.WriteLine("Ergebnis von num1: {0} - num2: {1} ist {2}",num1, num2, result);                                      // Subktraktion: 5 - 3 = 2
+  
+            result = num1 * num2;
+            Console.WriteLine("Ergebnis von num1: {0} x num2: {1} ist {2}",num1, num2, result);                                      // Multiplikation: 5 x 3 = 15
+
+            result = num1 / num2;
+            Console.WriteLine("Ergebnis von num1: {0} / num2: {1} ist {2}",num1, num2, result);                                      // Integerivision: 5 / 3 = 1 (Nachkommastellen werden abgeschnitten)
+
+            result = num1 % num2;
+            Console.WriteLine("Ergebnis von num1: {0} % num2: {1} ist {2}",num1, num2, result);                                      // Modulo: 5 / 3 = Rest 2
+
+            // Relationale & Typoperatoren
+            bool isLower;
+            isLower = num1 < num2;                                                                                                   // überprüft ob Zahl11 kleiner als Zahl2 ist, 5 < 3 = false
+            Console.WriteLine("Ergebnis von num1: {0} < num2: {1} ist {2}",num1, num2, isLower);   
+
+            // Gleicheit
+            bool isEqual;
+            isEqual = num1 == num2;                                                                                                  // ist num1 genau gleich num2, also gleicher Wert
+            Console.WriteLine("Ergebnis von num1: {0} == num2: {1} ist {2}",num1, num2, isEqual);                                    // false 
+
+            // Ungleicheit
+            isEqual = num1 != num2;                                                                                                  // num 1 ist nicht gleich num2
+            Console.WriteLine("Ergebnis von num1: {0} != num2: {1} ist {2}",num1, num2, isEqual);                                    // true
+  
+            // konditionelle Operatoren
+            bool isLowerAndSunny;
+
+            // Kondition1 und Kondition2
+            isLowerAndSunny = isLower && isSunny;                                                                                    // wenn beide zutreffen dann true, nur eins false dann Gesamt false
+            Console.WriteLine("Ergebnis von num1: {0} && num2: {1} ist {2}",num1, num2, isLowerAndSunny);
+
+            // Kondition1 oder Kondition2
+            isLowerAndSunny = isLower || isSunny;                                                                                    // eins der beiden ist true = Gesamt true
+            Console.WriteLine("Ergebnis von num1: {0} || num2: {1} ist {2}",num1, num2, isLowerAndSunny);
+
+            Console.ReadKey();
+        }                                                       
+    }
+}
