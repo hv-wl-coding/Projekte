@@ -1,5 +1,6 @@
 Wenn Code nur unter bestimmten Bedingungen ausgeführt werden soll, kann dieser über "if" (Schlüsselwort "falls/wenn") gefolgt von der "(Bedingung)" definiert werden der darauffolgende Codeblock bezieht sich also nur auf diese Zeile.
-So können z.B. für Eingaben diverse Bedingungen festgelegt werden, die dann unterschiedliche Blöcke oder auch Ausgaben triggern.
+So können z.B. für Eingaben diverse Bedingungen festgelegt werden, die dann unterschiedliche Blöcke oder auch Ausgaben triggern. Wenn nur mit "if" für alle Bedingungen gearbeitet wird, handelt das Programm so als wüsste er nicht 
+das vorher Bedingungen existiert haben.
 
 using System;
 
