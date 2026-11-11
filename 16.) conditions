@@ -26,20 +26,33 @@ namespace MeinProjekt
                 Console.WriteLine("T-Shirt reicht heute aus!");
             }
             Console.WriteLine("Gebe eine Zahl ein: ");
-            int eingabe = int.Parse(Console.ReadLine());                                   // funktioniert natürlich auch mit Eingaben
+            // int eingabe = int.Parse(Console.ReadLine());                                   // funktioniert natürlich auch mit Eingaben
+            string eingabeInput = Console.ReadLine();
+            int eingabe;
+            int number;
+
+             // tryparse methode braucht 2 parameter (string und output als integer, IStackWalk das ergebnis der umwandlung)
+            if(int.TryParse(eingabeInput, out number)) // fragt ab ob tryparse funktioneirt hat, kann auch als boolscher wert gespeichert werden ob umwandlugn geklappt hat oder nicht
+            {
+                eingabe = number; // dann speicher eingabe in number
+            }             // wenn nicht funktioneirt würde wert leer bleiben, deshalb folgende bedingung wichtig
+            else
+            {
+                eingabe = 0; // wenns nicht funktioniert hat speichere ind ervariable den wert 0
+            }
 
             if(eingabe < 20)
             {
                 Console.WriteLine("Die Zahl ist kleiner als 20.");
             }
-            if(eingabe == 20)
+            else if(eingabe == 20)            // "sonst falls", wenn "if" nicht der fall ist dann teste nächste bedingung
             {
                 Console.WriteLine("Die Zahl entspricht 20.");
             }
-            if(eingabe >20)
+            else                               // ansonsten, wenn keine vorherige Bedingung erfüllt ist, sozusagen alle anderen Fälle
             {
                 Console.WriteLine("Die Zahl ist größer als 20.");
             }
         }                                          
-    }
+    }                 // code wird schneller, da direkt blöcke übersprungen werdne können
 }
