@@ -49,7 +49,7 @@ namespace MeinProjekt
             int aliceGeheimA = Random.Shared.Next(1, 100);
             Console.WriteLine("Alice geheime Zahl: {0}", aliceGeheimA);
 
-            // öffentlicher Schlüssel Alice berechnen
+            // öffentlichen Schlüssel von Alice berechnen
             /*int PowerAlice(int g, int aliceGeheima, int p)
             {
                 int ergebnis = 1;
@@ -67,7 +67,7 @@ namespace MeinProjekt
             int bobGeheimB = Random.Shared.Next(1, 100);
             Console.WriteLine("Bob´s geheime Zahl: {0}", bobGeheimB);
 
-            // öffentlicher Schlüssel Bob berechnen
+            // öffentlichen Schlüssel von Bob berechnen
             /*int PowerBob(int g, int bobGeheimb, int p)
             {
                 int ergebnis = 1;
