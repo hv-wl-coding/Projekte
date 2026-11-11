@@ -1,0 +1,122 @@
+Der Diffie-Hellmann-Schlüsseltausch wird wird z.B. als dreifach Varianete mit Authentifizierung bei WhatsApp genutzt.
+Im Grunde geht es darum den Datenverkehr vor dritten zu schützen.
+Der Schlüsseltausch besteht aus folgenden Schritten:
+•	zwei Parteien (Alice & Bob) einigen sich öffentlich auf jeweils zwei große Zahlen: Primzahl p (Modulo) und Basis g (Generator)
+•	Öffentlich (eine dritte Partei) kennt diese Zahlen (p und g) auch
+•	jede Partei wählt eine zufällige geheime Zahl (Alice : a und Bob : b)
+•	A = g^a mod p sendet an Bob und andersherum B = g^b mod p sendet an Alice
+•	Öffentlich fängt die Ergebnisse ab
+•	Alice rechnet K = B^b mod p und Bob rechnet K = A^b mod p
+•	laut Potenzgesetz erhalten beide denselben Wert K
+•	Öffentlich kennt p, g, A und B kann geheimes K nicht berechnen ohne a & b (diskreter Logarithmus) zu kennen
+
+Schwachstellen:
+•	keine Authentifizierung nur geheime Übertragung
+•	Man-in-the-Middle kann sich als jeweils andere Partei ausgeben
+•	in der Praxis immer mit Signaturen/Zertifikaten von Sender/Empfänger
+•	kann durch Shor-Algorithmus aufgelöst werden (auch bei extrem hohen Zahlen, wenn entsprechende Quantenleistung dahinter steckt)
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {     
+            Diffie();
+        }  
+        public static int ModPow(int basis, int exponent, int p)                                     // performanter mit einer Methode für die Potenzrechnung
+        {
+            int ergebnis = 1;
+            for (int i = 0; i < exponent; i++)
+            {
+                ergebnis = (ergebnis * basis) % p;
+            }
+            return ergebnis;
+        }
+        public static void Diffie()
+        {
+            // gemeinsame Primzahl wählen
+            Console.WriteLine("gemeinsame Primzahl (öffentlich) p wählen:");
+            int p = int.Parse(Console.ReadLine());
+
+            // gemeinsame Basis wählen
+            Console.WriteLine("gemeinsame Basis (öffentlich) g wählen:");
+            int g = int.Parse(Console.ReadLine());
+
+            // Alice wählt geheime Zufallszahl (privater Schlüssel)
+            int aliceGeheimA = Random.Shared.Next(1, 100);
+            Console.WriteLine("Alice geheime Zahl: {0}", aliceGeheimA);
+
+            // öffentlicher Schlüssel Alice berechnen
+            /*int PowerAlice(int g, int aliceGeheima, int p)
+            {
+                int ergebnis = 1;
+                for(int i = 0; i < aliceGeheima; i++)
+                {
+                    ergebnis = (ergebnis * g) % p;                                                   // bei großen Zahlen und Datentyp Integer: Modulo in die Schleife für Rest in jedem Durchlauf
+                }
+                return ergebnis;
+            }
+            int oeffentlichSchluesselA = PowerAlice(g, aliceGeheima, p);*/
+            int oeffentlichA = ModPow(g, aliceGeheimA, p);
+            Console.WriteLine("Alice öffentlicher Schlüssel: {0}", oeffentlichA);
+
+            // Bob wählt geheime Zufallszahl (privater Schlüssel)
+            int bobGeheimB = Random.Shared.Next(1, 100);
+            Console.WriteLine("Bob´s geheime Zahl: {0}", bobGeheimB);
+
+            // öffentlicher Schlüssel Bob berechnen
+            /*int PowerBob(int g, int bobGeheimb, int p)
+            {
+                int ergebnis = 1;
+                for(int i = 0; i < bobGeheimb; i++)
+                {
+                    ergebnis = (ergebnis * g) % p;
+                }
+                return ergebnis;
+            }
+            int oeffentlichSchluesselB = PowerBob(g, bobGeheimb, p);*/
+            int oeffentlichB = ModPow(g, bobGeheimB, p);
+            Console.WriteLine("Bob´s öffentlicher Schlüssel: {0}", oeffentlichB);
+
+            // Alice berechnet geheimen Schlüssel s
+            /*int PowerAliceSchluessel(int oeffentlichSchluesselB, int aliceGeheima, int p)
+            {
+                int ergebnis = 1;
+                for(int i = 0; i < aliceGeheima; i++)
+                {
+                    ergebnis = (ergebnis * oeffentlichSchluesselB) % p;
+                }
+                return ergebnis;
+            }
+            int aliceGeheimSchluessels = PowerAliceSchluessel(oeffentlichSchluesselB, aliceGeheima, p);*/
+            int aliceGeheimS = ModPow(oeffentlichB, aliceGeheimA, p);
+            Console.WriteLine("Alice berechnet geheimen Schlüssel (s): {0}", aliceGeheimS);
+
+            // Bob berechnet geheimen Schlüssel s
+            /*int PowerBobSchluessel(int oeffentlichSchluesselA, int bobGeheimb, int p)
+            {
+                int ergebnis = 1;
+                for(int i = 0; i < bobGeheimb; i++)
+                {
+                    ergebnis = (ergebnis * oeffentlichSchluesselA) % p;
+                }
+                return ergebnis;
+            } 
+            int bobGeheimSchluessels = PowerBobSchluessel(oeffentlichSchluesselA, bobGeheimb, p);*/
+            int bobGeheimS = ModPow(oeffentlichA, bobGeheimB, p);
+            Console.WriteLine("Bob berechnet geheimen Schlüssel (s): {0}", bobGeheimS);
+
+            if (aliceGeheimS == bobGeheimS)
+            {
+                Console.WriteLine("Geheime Schlüssel sind identisch, Diffie-Hellmann funktioniert!");
+            }
+            else
+            {
+                Console.WriteLine("Diffie-Hellmann fehlgeschlagen");
+            }
+        }                                                     
+    }
+}
