@@ -1,0 +1,42 @@
+Bedingungen können auch verschachtelt werden um zusätzliche Faktoren für einen Fall hinzuzufügen, z.B. für Login-Abfragen. Also "if" in "if".
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args) 
+        {     
+         bool isAdmin = false;                                                                                          // ob man Admin ist oder nicht
+         bool isRegistered = true;                                                                                      // registriert oder nicht
+         string userName = "";                                                                                          // aktuell leerer String
+         Console.WriteLine("Bitte trage deinen Benutzernamen ein");
+         userName = Console.ReadLine();                                                                                 // Eingabe in "userName" speichern
+
+         // if(isRegistered && userName != "" && userName == "Admin")                                                   // verkürzte Variante mit zusammengefassten Bedingungen, wenn alle erfüllt sind wird ausgeführt
+         if(isRegistered)                                                                                               // wenn registriert, dann Codeblock ausführen
+            {
+             Console.WriteLine("Hallo registrierter Nutzer!"); 
+             if(userName != "")                                                                                         // ausführen wenn Benutzername nicht leer, da vorher auch ohne Eingabe Text erschien
+                {
+                   Console.WriteLine("Hi, {0}.", userName); 
+                   // if(userName == "Admin")
+                   if(userName.Equals("Admin"))                                                                         // "Equals" Methode als Alternative zu "=="
+                    {
+                        Console.WriteLine("Hallo, Admin!");
+                    }
+                }
+            }
+            else                                                                                                         // wenn bool für Registrierung "false"
+            {
+                Console.WriteLine("Sie sind nicht registriert!");
+                if(!isAdmin)
+                {
+                    Console.WriteLine("Hallo, nicht Admin.");
+                }
+            }
+        Console.ReadKey();
+        }                                          
+    }
+}
