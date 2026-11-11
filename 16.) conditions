@@ -1,6 +1,6 @@
 Wenn Code nur unter bestimmten Bedingungen ausgeführt werden soll, kann dieser über "if" (Schlüsselwort "falls/wenn") gefolgt von der "(Bedingung)" definiert werden der darauffolgende Codeblock bezieht sich also nur auf diese Zeile.
 So können z.B. für Eingaben diverse Bedingungen festgelegt werden, die dann unterschiedliche Blöcke oder auch Ausgaben triggern. Wenn nur mit "if" für alle Bedingungen gearbeitet wird, handelt das Programm so als wüsste er nicht 
-das vorher Bedingungen erfüllt waren oder nicht.
+das vorher Bedingungen erfüllt waren oder nicht. Um das Programm allerdings schneller zu gestallten ist das Verwenden von "if", "else if" und "else" geeigneter, da nicht zutreffende Bedingungen direkt übersprungen werden können.
 
 using System;
 
@@ -12,11 +12,11 @@ namespace MeinProjekt
         {    
             int temperature = 10;
 
-            if(temperature < 10)                                                           // fragt ab ob die vorher festgelegte Variable Temperatur kleiner als 10 ist, wenn Bedingung zutrifft wird Codeblock ausgeführt
+            if(temperature < 10)                                                                               // fragt ab ob die vorher festgelegte Variable Temperatur kleiner als 10 ist, wenn Bedingung zutrifft wird Codeblock ausgeführt
             {
                 Console.WriteLine("Zieh deine Jacke an!");
             }
-            if(temperature == 10)                                                          // weitere Bedigungen können definiert werden, Codeblock der jeweils erfüllten Bedingung wird ausgeführt
+            if(temperature == 10)                                                                              // weitere Bedigungen können definiert werden, Codeblock der jeweils erfüllten Bedingung wird ausgeführt
             {
                 Console.WriteLine("Es ist genau 10 Grad!");
             }
@@ -26,33 +26,33 @@ namespace MeinProjekt
                 Console.WriteLine("T-Shirt reicht heute aus!");
             }
             Console.WriteLine("Gebe eine Zahl ein: ");
-            // int eingabe = int.Parse(Console.ReadLine());                                   // funktioniert natürlich auch mit Eingaben
+            // int eingabe = int.Parse(Console.ReadLine());                                                    // funktioniert natürlich auch mit Eingaben
             string eingabeInput = Console.ReadLine();
             int eingabe;
             int number;
 
-             // tryparse methode braucht 2 parameter (string und output als integer, IStackWalk das ergebnis der umwandlung)
-            if(int.TryParse(eingabeInput, out number)) // fragt ab ob tryparse funktioneirt hat, kann auch als boolscher wert gespeichert werden ob umwandlugn geklappt hat oder nicht
+                                                                                                               // Tryparse-Methode braucht 2 Parameter (string und output als Integer, das ergebnis der umwandlung)
+            if(int.TryParse(eingabeInput, out number))                                                         // fragt ab ob Tryparse funktioniert hat, kann auch als boolscher Wert gespeichert werden ob Umwandlung geklappt hat oder nicht
             {
-                eingabe = number; // dann speicher eingabe in number
-            }             // wenn nicht funktioneirt würde wert leer bleiben, deshalb folgende bedingung wichtig
+                eingabe = number;                                                                              // dann Speicher eingabe in "number"
+            }                                                                                                  // wenn nicht funktioniert würde Wert leer bleiben, deshalb folgende Bedingung wichtig
             else
             {
-                eingabe = 0; // wenns nicht funktioniert hat speichere ind ervariable den wert 0
+                eingabe = 0;                                                                                   // wenns nicht funktioniert hat speichere in der Variable den Wert 0
             }
 
             if(eingabe < 20)
             {
                 Console.WriteLine("Die Zahl ist kleiner als 20.");
             }
-            else if(eingabe == 20)            // "sonst falls", wenn "if" nicht der fall ist dann teste nächste bedingung
+            else if(eingabe == 20)                                                                              // "sonst falls", wenn "if" nicht der fall ist dann teste nächste Bedingung
             {
                 Console.WriteLine("Die Zahl entspricht 20.");
             }
-            else                               // ansonsten, wenn keine vorherige Bedingung erfüllt ist, sozusagen alle anderen Fälle
+            else                                                                                                // "ansonsten", wenn keine vorherige Bedingung erfüllt ist, sozusagen alle anderen Fälle
             {
                 Console.WriteLine("Die Zahl ist größer als 20.");
             }
         }                                          
-    }                 // code wird schneller, da direkt blöcke übersprungen werdne können
+    }                
 }
