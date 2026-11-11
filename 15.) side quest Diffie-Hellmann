@@ -1,4 +1,4 @@
-Der Diffie-Hellmann-Schlüsseltausch wird wird z.B. als dreifach Varianete mit Authentifizierung bei WhatsApp genutzt.
+Der Diffie-Hellmann-Schlüsseltausch wird wird z.B. als dreifach Variante mit Authentifizierung bei WhatsApp genutzt.
 Im Grunde geht es darum den Datenverkehr vor dritten zu schützen.
 Der Schlüsseltausch besteht aus folgenden Schritten:
 •	zwei Parteien (Alice & Bob) einigen sich öffentlich auf jeweils zwei große Zahlen: Primzahl p (Modulo) und Basis g (Generator)
