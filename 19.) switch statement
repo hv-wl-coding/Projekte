@@ -1,1 +1,62 @@
+Switch-Statements werden genutzt um den ausführbaren Code zu wechseln. Dafür wird z.B. zu einer Variable als Bedingung verschwiedene Fälle (case) durchlaufen.
+Sobald eine Position zu der Variable passt ist die Bedingung erfüllt und ein anderer Codeblock wird ausgeführt.
+Switch kann man sich in dem Fall wie ein Schalter vorstellen der unter bestimmten Bedingungen wechselt.
 
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int age = 17;
+
+            switch (age)                                                                                              // einschaltender Ausdruck, Variable die geprüft wird
+            {
+                case 15:
+                case 16:
+                case 17:                                                                                              // mehrere "case" aneinanderreihen ohne break um den selben Codeblock auszuführen
+                    Console.WriteLine("Zu jung zum feiern!"); 
+                    break;                                                                                            // wenn Fall erfüllt dann springt aus aktuellen Kontext (switch-Anweisung), geht weitere "case" nicht durch
+                case 25:
+                    Console.WriteLine("Ab gehts");
+                    break;
+                default:                                                                                              // wie in "if" das "else", also eine Standartbedingung wenn alle anderen nicht erfüllt sind
+                    Console.WriteLine("Wie alt bist du?");
+                    break;
+            }
+            // Vergleich mit if-Bedingung
+            if(age <= 17)
+            {
+                Console.WriteLine("Zu jung zum feiern!");
+            }
+            else if(age == 25)
+            {
+                Console.WriteLine("Ab gehts");
+            }
+            else
+            {
+                Console.WriteLine("Wie alt bist du?");
+            }
+
+            string username = "I am Groot";
+            switch (username)
+            {
+                case "Kurt":
+                    Console.WriteLine("Neuer Name ist Kurt.");
+                    break;
+                case "Beispiel":
+                    Console.WriteLine("Benutzername ist Beispiel.");
+                    break;
+                case "root":
+                    Console.WriteLine("I am root!");
+                    break;
+
+                default:
+                    Console.WriteLine("Benutzername unbekannt.");
+                    break;
+            }
+        }                           
+    }
+}
