@@ -1,0 +1,57 @@
+Bedingungen durch if-Codeblöcke prüfen ist eine Variante, möchte man diese kürzer fassen kann eine weitere Art genutzt werden.
+Die Syntax lautet:
+Bedingung ? erster Ausdruck : zweiter Ausdruck
+Wenn die Bedingung wahr ist, trifft der erste Ausdruck zu. Ist die Bedingung zu Beginn false trifft der zweite Ausdruck zu.
+Eine Bedingung ist in dem Fall also entweder true oder false (Boolean).
+Zu beachten ist das er konditionelle Operator rechts assoziativ ist (von rechts nach links gruppiert und ausgewertet).
+
+Beispiel:
+a ? b : c ? d : e
+Bedingung a ist erfüllt? Dann b. Ist Bedingung a nicht erfüllt? Dann weitere Bedingung c. Ist c wahr? Dann d, ansonsten e.
+
+Falsch:
+(a ? b : c) ? d : e
+Wenn die Klammer erfüllt ist dann d, wenn nicht dann c - wäre eine falsche Interpretation.
+Konditionelle Operatoren können nicht überschrieben werden.
+
+In folgendem Beispiel reduziert sich durch advanced if-Statements der Code von 12 auf 1 Zeile.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int temperatur = -5;                                                                                     // Variable für Wassertemperatur
+            string stateOfMatter;                                                                                    // Variable für Aggregatzustand
+
+            if(temperatur < 0)
+            {
+                stateOfMatter = "fest";
+            }
+            else if(temperatur > 0 && temperatur < 100)
+            {
+                stateOfMatter = "flüssig";
+            }
+            else
+            {
+                stateOfMatter = "gasförmig";
+            }
+            Console.WriteLine("Aggregatszustand ist {0}.", stateOfMatter);
+
+            temperatur += 30;                                                                                        // Änderung um Statements voneinander abzuheben
+            // kurzversion advanced if statement
+            stateOfMatter = temperatur < 0 ? "fest" : "flüssig";                                                     // Variable Aggregatzustand, wenn Bedingung Temperatur kleiner als 0 erfüllt ist "fest" zuweisen ansonsten flüssig
+            Console.WriteLine("Aggregatszustand ist {0}.", stateOfMatter);
+
+            temperatur += 100;
+            stateOfMatter = temperatur > 100 ? "gasförmig" : temperatur < 0 ? "fest" : "flüssig";                    // für 3 Statements wird die Bedingung nach der ersten Abfrage angepasst um weitere Zustände abzufragen; wenn erste Bedingung nicht der Fall, neue Bedingung abfragen dann wieder true/false Zustände
+                                                                                                                     // Aggregatzustand = ist das erfüllt? ja dann gasförmig, nicht erfüllt dann zweiter Teil: ist die zweite Bedingung erfüllt? ja? dann "fest", nein? dann flüssig
+            Console.WriteLine("Aggregatszustand ist {0}.", stateOfMatter);
+
+            Console.ReadKey();
+        }                     
+    }
+}
