@@ -1,0 +1,52 @@
+Mit den verschachtelten BEdingungen lässt sich eine Registrierung für Benutzer/Passwort und das entsprechende Login schreiben.
+Über die Eingaben werden Variablen initialisiert - Benutzername und Passwort sind bei der Registrierung dort gespeichert.
+Die zweite Methode gleicht dann in den if-Bedingungen ab ob beim Login die Eingaben mit den gespeicherten Werten übereinstimmen.
+Wenn ja erfolgt nach der Eingabe des Benutzernamens die Passworteingabe, wenn nicht dann wird die jeweilige Fehlermeldung ausgegeben.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static string userName;                                                                         // static weil sie später in den static Methoden aufgrufen werden sollen, müssen Außerhalb stehen damit alle weiteren Methoden auf sie zugreifen können
+        static string password;
+        static void Main(string[] args)
+        {
+            Registrieren();
+            LogIn();
+            Console.ReadKey();
+        }
+        public static void Registrieren() // methode zum anlegen des benutzers
+        {
+            Console.WriteLine("Benutzernamen registrieren: ");
+            userName = Console.ReadLine();                                                              // speichert Eingabe in den außenstehenden Variablen
+
+            Console.WriteLine("Passwort registrieren: ");
+            password = Console.ReadLine();
+
+            Console.WriteLine("Registrierung abgeschlossen!");
+            Console.WriteLine("-----------------------------------------------------------");
+        }
+        public static void LogIn()                                                                      // Abgleich der Logindaten mit den registrierten Werten
+        {
+            Console.WriteLine("Benutzernamen eingeben: ");
+            if(userName == Console.ReadLine())
+            {
+                Console.WriteLine("Passwort eingeben: ");
+                if(password == Console.ReadLine())                                                      // verschachtelte Bedingung, sofern Name korrekt, Passwort verlangen
+                {
+                    Console.WriteLine("Log In erfolgreich!");
+                }
+                else
+                {
+                    Console.WriteLine("Login fehlgeschlagen, falsches Passwort!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Benutzername falsch!");
+            }     
+        }                                   
+    }
+}
