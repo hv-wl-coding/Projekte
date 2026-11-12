@@ -1,0 +1,32 @@
+Methode zum vergleichen von Spielern und Punktzahlen.
+Mehrfacher MEthodenaufruf.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static int highscore = 1000;
+        static string highscorePlayer = "Average";
+        static void Main(string[] args)
+        {
+            Points(700, "Noob");
+            Points(1200, "Gamer");
+            Console.ReadKey();
+        }     
+        public static void Points(int score, string player)
+        {
+            if(score > highscore)
+            {
+                highscore = score;
+                highscorePlayer = player;
+                Console.WriteLine("Neuer Highscore ist {0}, von {1}!", highscore, highscorePlayer);
+            }  
+            else
+            {
+                Console.WriteLine("{0} konnte den alten Highscore von {1} mit {2} nicht brechen!", player, highscorePlayer, highscore);
+            }
+        }                  
+    }
+}
