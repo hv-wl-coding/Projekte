@@ -12,7 +12,7 @@ byte        8-Bit vorzeichenloser Integer (uint8_t)                       0 - 25
 char        16-Bit Unicode character (UTF-16)                             U +0000 - U +ffff                                             \o' 
 int         32-Bit Ganzzahl                                              -2.147.483.648 - 2.147.283.647                                 0
 float       32-Bit single-precision floating point type (FP32)           -3,4 x 1038 - 3,4 x 1038                                       0.0F
-double      54-Bit double-precision floating point type(FP64)            (+/-)5,0 x 10-324 - (+/-)1,7 x 10308                           0.0D
+double      64-Bit double-precision floating point type(FP64)            (+/-)5,0 x 10-324 - (+/-)1,7 x 10308                           0.0D
 decimal     128-Bit Dezimalzahl mit 28-29 Stellen                        (-7,9 x 1028 - 7,9 x 1028 / 100 - 28)                          0.0M
 long        64-Bit Ganzzahl                                              -9.223.372.036.854.775.808 - 9.223.372.036.854.775.807         0L
 sbyte       8-Bit Ganzzahl                                               -128 - 127                                                     0 
