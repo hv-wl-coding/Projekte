@@ -1,0 +1,38 @@
+Loops, also Schleifen sind Möglichkeiten Zeit zu sparen und einfachen Code zu wiederholen.
+Z.B. bei großen Datenmengen oder auch Listen und Arrays werden diese ganz einfach durchgearbeitet.
+Folgende Schleifen gibt es...
+
+For-Schleife:
+
+ for(start wert; Bedingung; increment)                           // für die Anzahl der Durchläufe
+ {
+ Codebock
+ }
+
+For-Schleifen eignen sich besonders gut für Zähler oder um etwas aufzuaaddieren.
+
+While-Schleifen:
+
+ zaehlerVariable = 0;                                       // Zählervariable außerhalb des loops
+ while(Bedingung)                                          // "solange" diese Bedingung gilt
+ {
+ Codeblock
+ zaehlerVariable++;                                        // dafür sorgen das Bedingung irgendwann nicht mehr erfüllt ist um Schleife zu beenden
+ }
+
+While-Schleifen wiederholen Code solange die Bedingung erfüllt ist
+
+Do-While-Schleife:
+
+ zaehlerVariable = 0;
+ do{
+ Codeblock
+ zaehlerVariable++;
+ }while(bedingung)
+
+"Mache" diesen Code, "solange" die Bedingung erfüllt ist.
+Führt Code mindestens 1x aus und überorüft dann.
+ 
+Foreach-Schleife:
+
+Läuft durch listen oder Arrays, solange es Inhalt gibt
