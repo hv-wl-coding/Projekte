@@ -1,5 +1,5 @@
 Methoden die mit "void" (leer) defineirt werden benltigen keinen Rückgabetyp. Alle anderen Methoden geben den jeweiligen datentyp zurück.
-Im "return" können z.B. ganze Ausführungen (wie Rehcnungen) stehen oder weitere Variablen, die z.B. ein Ergebnis dieser Rechnung speichern.
+Im "return" können z.B. ganze Ausführungen (wie Rechnungen) stehen oder weitere Variablen, die z.B. ein Ergebnis dieser Rechnung speichern.
 Für die jeweilige Ausgabe wird wieder der print-Befehl "Console.WriteLine()" benötigt, der entweder direkt den methodenaufruf beinhaltet oder die Ergebnisvariable.
 
 using System;
