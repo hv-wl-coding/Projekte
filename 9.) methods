@@ -12,7 +12,7 @@ Zugriffsmodifizierer: z.B. public/private, bestimmt Sichtbarkeiten in anderen Kl
 Rückgabetyp: z.B. int, string (Wertetyp)
 Methodenname: eindeutig
 Parameterliste: übergebene optionale Daten an die Methode (Typ, Reihenfolge, Anzahl)
-Methodenkörper: erforderliche Anweisungen zum Ausführne der Aktivität
+Methodenkörper: erforderliche Anweisungen zum Ausführen der Aktivität
 
 Beispiele:
 
