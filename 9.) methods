@@ -26,4 +26,4 @@ public int Add(int num1, int num2) {
 }
 
 Parameter: Variablen bei Erstellung einer Methode (Methodenkopf in Klammern nach Methodenname)
-Attribute: Werte die an die Methode übergeben werden (im MEthodenkörper)
+Attribute: Werte die an die Methode übergeben werden (im Methodenkörper)
