@@ -16,8 +16,8 @@ Methodenkörper: erforderliche Anweisungen zum Ausführne der Aktivität
 
 Beispiele:
 
-public int Add(int num1, int num2) { //variablen bei erstellung sind parameter
-    int result = num1 + num2;    //werte die übergeben werden sind attribute
+public int Add(int num1, int num2) {                        // Variablen bei erstellung sind parameter
+    int result = num1 + num2;                               // Werte die übergeben werden sind attribute
     return result;
 }
 
