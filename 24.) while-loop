@@ -1,0 +1,31 @@
+While-Schleifen sind kopfgesteuert. Das heißt das direkt am Anfang geprüft wird ob die Bedingung erfüllt ist vor dem ersten Durchlauf.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int counter = 0;                                                                                                                  // Zähler
+            while (counter < 10)                                                                                                              // solange Bedingung wahr ist, muss irgendwann false sein sonst Endlosschleife
+            {
+                Console.WriteLine(counter);                                                                                                   // Ausgabe 0-9
+                counter++;                                                                                                                    // erhöht Zähler damit Bedingung irgendwann false ist
+            }  
+
+            string enteredText =""; // leerer string
+            while (enteredText.Equals(""))                                                                                                    // überprüfen ob der eingegebene Text ein leerer String ist
+            {
+                Console.WriteLine("Bitte drücke Enter um eins hochzuzählen, oder gib etwas anderes ein, um die Zählung zu beenden.");         // wird etwas anderes als Enter eingegeben ist Bedingung false und Schleife wird beendet
+                enteredText = Console.ReadLine();
+                Console.WriteLine($"Aktuelle Anzahl Schüler im Bus: {counter}");
+                counter++;                                                                                                                    // hochzählen
+            }
+            Console.WriteLine($"{counter} Schüler sind im Bus");
+
+            Console.ReadLine();
+        }
+    }
+}
