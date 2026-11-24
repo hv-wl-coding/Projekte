@@ -1,0 +1,37 @@
+Um Daten durch zugehen oder auszulesen und daraufhin bestimmten Code auszuführen bzw. allgemein bei repetetiven Aufgaben mit angepassten 
+können for-Schleifen benutzt werden. Zunächst wird bestimmt wie lang diese Schleife läuft und was für jeden Durchlauf passieren soll.
+
+using System;
+
+namespace MeinProjekt
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int zaehler = 0; zaehler < 10; zaehler++)                                        // Code wird ausgeführt wenn zaehler < 10 erfüllt ist, dann jeweils um 1 erhöht damit Bedingung irgendwann nicht erfüllt ist um Schleife zu beenden
+            {
+                Console.WriteLine($"Zählerwert ist {zaehler}");                                   // Ausgabe: 0-9
+            } 
+
+            for (int zaehler = 10; zaehler >= 0; zaehler--)                                       // Runterzählen geht ebenfalls, nimmt 0 diesmal mit
+            {
+                Console.WriteLine($"Zählerwert ist {zaehler}");
+            }
+
+            for (int zaehler = 20; zaehler >= 0; zaehler-=3)                                      // Schreitweite angeben, 2 ist letzter gültiger Wert, danach Bedingung nicht mehr erfüllt
+            { 
+                Console.WriteLine($"Zählerwert ist {zaehler}");
+            }
+
+            for (int i = 0; i < 20; i++) 
+            {
+                if (i % 2 != 0)                                                                   // alle ungeraden Zahlen von 0 - 20
+                {
+                    Console.WriteLine($"Zählerwert ist {i}");
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
