@@ -1,0 +1,31 @@
+Wenn große Datenmengen durchgegangen werden sollen kann an der Stelle wo die jeweilige Bedinung zutrifft weiterer Code ausgeführt werden (z.B. einen Namen löschen) und der Suchdurchlauf wird beendet.
+Das spart Rechenlesitung da die Shcleife nicht bis zum Ende durchlaufenw erden muss.
+
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        for (int counter = 0; counter < 10; counter++)                                    // hochzählen solange kleiner 10
+        {
+            if (counter == 3)                                                             // Abbruchbedingung
+            {
+                // Console.WriteLine("Bei 3 machen wir schluss!");
+                // break;                                                                 // bricht aus dem aktuellen Kontext raus und beendet die for-schleife
+                Console.WriteLine("Bei 3 überspringen wir!");
+                continue;                                                                 // fortsetzen der Ausgabe bei erfüllter Bedingung - Schleife aber weiter laufen lassen (überspringt die 3 und gibt aus)
+            }
+
+--------------------------------------------------------------------------------------------------------------------------
+
+            if (counter % 2 == 0)                                                         // wenn Zahl gerade ist
+            {
+                Console.WriteLine("Als nächstes kommt eine ungerade Zahl!");
+                continue;                                                                 // überspringen
+            }
+            Console.WriteLine(counter);                                                   // Zählervariable ausgeben
+        }
+        Console.ReadKey();
+    }
+}
