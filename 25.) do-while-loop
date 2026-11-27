@@ -1,1 +1,32 @@
+Do-while-Schleifen durhclaufen den Code mindestens 1x bevor die Bedinung aus dem while-Block geprüft wird.
 
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int lengthOfText = 0;
+        string wholeText = "";
+
+        do
+        {
+            Console.WriteLine("Bitte trage den Namen eines Freundes ein.");
+                string nameOfAFriend = Console.ReadLine();                                                    // Namen des Freundes im String speichern nach der Eingabe
+                int currentLength = nameOfAFriend.Length;                                                     // die Länge des eigegebenen Namens zählen       
+                lengthOfText += currentLength;                                                                // while-Bedingung: um die Länge des Namens erhöhen führt irgendwann zu Abbruchbedingung
+                wholeText += nameOfAFriend;                                                                   // alle Namen zusammenfügen für Ausgabe
+        } while (lengthOfText < 20); // solange variable unter 20, soll der nutzer text eingeben
+        Console.WriteLine($"Danke, das reicht! Deine Freunde sind {wholeText}");
+        
+        int counter = 25;                                                                                     // Zählervariable, wenn sie bereits Bedingung überschreitet wird Schleife nicht komplett durchlaufen, nur das eine mal (Unterschied zu for & while Schleife)
+        do                                                                                                    // führe folgenden Code aus
+        {
+            Console.WriteLine(counter);
+            counter++;                                                                                        // gucken das Bedingung irgendwann nicht erfüllt ist sonst Endlosschleife durch Inkrementieren in dem Beispiel
+
+        } while (counter < 5);                                                                                 // überprüfe dann Bedingung zb. ob wahr ist
+
+        Console.ReadKey();
+    }
+}
